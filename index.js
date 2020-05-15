@@ -6,7 +6,7 @@ const qs = require('querystring');
 
 dotenv.config();
 
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'http://localhost:3001/';
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.set('port', (process.env.PORT || 8000));
 
-app.get('goals', async (req, res, next) => {
+app.get('/goals', async (req, res, next) => {
   try {
     const url = `${baseUrl}goals`;
     const axiosConfig = {
@@ -31,7 +31,7 @@ app.get('goals', async (req, res, next) => {
   }
 });
 
-app.get('goals/:id', async (req, res, next) => {
+app.get('/goals/:id', async (req, res, next) => {
   try {
     const url = `${baseUrl}goals/${req.params.id}`;
     const axiosConfig = {
@@ -46,7 +46,7 @@ app.get('goals/:id', async (req, res, next) => {
   }
 });
 
-app.delete('goals/:id', async (req, res, next) => {
+app.delete('/goals/:id', async (req, res, next) => {
   try {
     const url = `${baseUrl}goals/${req.params.id}`;
     const axiosConfig = {
@@ -61,7 +61,7 @@ app.delete('goals/:id', async (req, res, next) => {
   }
 });
 
-app.put('goals/:id', async (req, res, next) => {
+app.put('/goals/:id', async (req, res, next) => {
   try {
     const url = `${baseUrl}goals/${req.params.id}`;
     const params = {
@@ -81,7 +81,7 @@ app.put('goals/:id', async (req, res, next) => {
   }
 });
 
-app.post('goals', async (req, res, next) => {
+app.post('/goals', async (req, res, next) => {
   try {
     const url = `${baseUrl}goals`;
     const params = {
